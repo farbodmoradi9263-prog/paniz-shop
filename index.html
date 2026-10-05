@@ -3,182 +3,548 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>شیرینی پانیز | فروشگاه آنلاین</title>
-<meta name="description" content="شیرینی پانیز؛ سفارش آنلاین کیک، شیرینی و دسر">
+<title>شیرینی پانیز | کیک، شیرینی و دسر</title>
+<meta name="description" content="فروشگاه آنلاین شیرینی پانیز؛ مشاهده محصولات و ثبت سفارش در واتساپ">
 
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;
- font-family:Tahoma,Arial,sans-serif;
- background:#0b0908;
- color:#fff;
- line-height:1.8
+:root{
+--bg:#090706;
+--panel:#15100d;
+--gold:#e8bd62;
+--gold2:#fff0b0;
+--muted:#b8aea4;
+--line:#5e4520
 }
-a{text-decoration:none;color:inherit}
-.container{width:min(1180px,92%);margin:auto}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+background:var(--bg);
+color:#fff;
+font-family:Tahoma,Arial,sans-serif;
+line-height:1.8
+}
+
+a{
+text-decoration:none;
+color:inherit
+}
+
+button,input,select,textarea{
+font:inherit
+}
+
+.container{
+width:min(1180px,92%);
+margin:auto
+}
 
 header{
- position:sticky;
- top:0;
- z-index:20;
- background:#0b0908ee;
- border-bottom:1px solid #9b762c55;
- backdrop-filter:blur(12px)
+position:sticky;
+top:0;
+z-index:50;
+background:#090706ef;
+border-bottom:1px solid #a87b2b55;
+backdrop-filter:blur(16px)
 }
 
 .nav{
- height:72px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px
+height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:18px
 }
 
 .logo{
- font-size:25px;
- font-weight:900;
- color:#e8c36a
-}
-.logo small{
- display:block;
- font-size:10px;
- color:#aaa;
- letter-spacing:2px
+font-size:25px;
+font-weight:900;
+color:var(--gold)
 }
 
-nav{display:flex;gap:22px;color:#ddd}
-nav a:hover{color:#e8c36a}
+.logo small{
+display:block;
+font-size:9px;
+letter-spacing:2px;
+color:#a89e95
+}
+
+nav{
+display:flex;
+gap:22px;
+color:#ddd
+}
+
+nav a:hover{
+color:var(--gold)
+}
+
+.actions{
+display:flex;
+gap:8px;
+align-items:center
+}
+
+.iconbtn,.btn{
+border:1px solid #a97b2e55;
+border-radius:14px;
+padding:11px 16px;
+cursor:pointer;
+font-weight:900
+}
+
+.iconbtn{
+background:#17110d;
+color:#fff;
+position:relative
+}
+
+.badge{
+position:absolute;
+top:-8px;
+left:-7px;
+background:#dba83f;
+color:#17100a;
+border-radius:99px;
+min-width:22px;
+height:22px;
+font-size:12px;
+display:grid;
+place-items:center
+}
 
 .btn{
- border:0;
- border-radius:14px;
- padding:12px 18px;
- background:linear-gradient(135deg,#f2d27a,#9b6b1e);
- color:#17110a;
- font-weight:900;
- cursor:pointer
+background:linear-gradient(135deg,#ffe39a,#b67a22);
+color:#160f08;
+border:0
+}
+
+.btn:hover{
+filter:brightness(1.08)
 }
 
 .hero{
- min-height:570px;
- display:grid;
- place-items:center;
- text-align:center;
- background:
- radial-gradient(circle at center,#3b281355,transparent 45%),
- linear-gradient(#09070688,#090706ee),
- url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=85')
- center/cover
+min-height:650px;
+display:grid;
+place-items:center;
+position:relative;
+overflow:hidden;
+background:#120c08
 }
 
-.hero-box{max-width:800px}
+.hero:before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+90deg,
+rgba(5,3,2,.88),
+rgba(10,6,3,.25),
+rgba(5,3,2,.88)
+),
+url("https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=2200&q=90")
+center/cover no-repeat;
+filter:saturate(1.05)
+}
+
+.hero:after{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(
+circle at 50% 45%,
+transparent 0,
+rgba(0,0,0,.18) 35%,
+rgba(0,0,0,.62) 100%
+)
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+text-align:center;
+max-width:850px;
+padding:80px 0
+}
+
+.eyebrow{
+color:var(--gold);
+font-weight:900;
+letter-spacing:1px
+}
 
 .hero h1{
- font-size:clamp(38px,7vw,76px);
- margin:10px 0;
- color:#f4d47b
+font-size:clamp(40px,7vw,82px);
+line-height:1.15;
+margin:15px 0;
+background:
+linear-gradient(
+90deg,
+#fff5c9,
+#dcae51,
+#fff0b0
+);
+-webkit-background-clip:text;
+color:transparent
 }
 
 .hero p{
- font-size:18px;
- color:#eee
+font-size:19px;
+color:#eee;
+max-width:650px;
+margin:0 auto 25px
 }
 
-.section{padding:70px 0}
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap
+}
+
+.section{
+padding:78px 0
+}
 
 .title{
- text-align:center;
- margin-bottom:35px
+text-align:center;
+margin-bottom:35px
 }
 
 .title h2{
- font-size:34px;
- margin:0;
- color:#f0cc70
+font-size:34px;
+color:var(--gold2);
+margin:0 0 5px
 }
 
-.title p{color:#aaa}
+.title p{
+color:var(--muted);
+margin:0
+}
 
 .controls{
- display:flex;
- gap:10px;
- flex-wrap:wrap;
- justify-content:center;
- margin-bottom:30px
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+margin-bottom:30px
 }
 
-input,select{
- background:#171310;
- border:1px solid #5f4925;
- color:#fff;
- padding:13px;
- border-radius:12px;
- outline:none
+input,select,textarea{
+background:#120e0b;
+color:#fff;
+border:1px solid var(--line);
+border-radius:12px;
+padding:12px 14px;
+outline:none
+}
+
+input:focus,select:focus,textarea:focus{
+border-color:var(--gold)
+}
+
+.search{
+width:min(420px,100%)
 }
 
 .products{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:20px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px
 }
 
 .card{
- background:#15110e;
- border:1px solid #5d4725;
- border-radius:20px;
- overflow:hidden;
- box-shadow:0 10px 35px #0008
+background:
+linear-gradient(
+180deg,
+#1a130e,
+#110d0a
+);
+border:1px solid #624a25;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 18px 45px #0008;
+transition:.25s
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#c49643
 }
 
 .card img{
- width:100%;
- height:210px;
- object-fit:cover;
- display:block
+width:100%;
+height:215px;
+object-fit:cover;
+display:block
 }
 
-.card-body{padding:18px}
+.card-body{
+padding:17px
+}
 
-.card h3{margin:0 0 6px}
+.tag{
+display:inline-block;
+font-size:11px;
+color:#e9c879;
+background:#3a2915;
+border:1px solid #725324;
+border-radius:99px;
+padding:2px 9px
+}
+
+.card h3{
+margin:9px 0 2px;
+font-size:18px
+}
+
+.desc{
+color:#a9a09a;
+font-size:13px;
+min-height:42px
+}
 
 .price{
- color:#f0ca6c;
- font-weight:900;
- font-size:19px;
- margin:12px 0
+font-size:19px;
+color:var(--gold);
+font-weight:900;
+margin:10px 0
 }
 
-.card .btn{width:100%}
+.card .btn{
+width:100%
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
+}
+
+.feature{
+padding:24px;
+background:#14100d;
+border:1px solid #4d391f;
+border-radius:18px;
+text-align:center
+}
+
+.feature b{
+color:var(--gold);
+font-size:18px
+}
 
 .contact{
- background:#15110e;
- border-top:1px solid #5d4725;
- border-bottom:1px solid #5d4725;
- text-align:center
+background:
+linear-gradient(
+180deg,
+#15100c,
+#0d0907
+);
+border-top:1px solid #513b20;
+border-bottom:1px solid #513b20;
+text-align:center
 }
 
 .phone{
- font-size:30px;
- color:#f0ca6c;
- font-weight:900
+font-size:31px;
+color:var(--gold);
+font-weight:900;
+direction:ltr;
+display:inline-block
 }
 
 footer{
- text-align:center;
- padding:28px;
- color:#999
+text-align:center;
+color:#887e76;
+padding:28px
 }
 
-@media(max-width:900px){
- .products{grid-template-columns:repeat(2,1fr)}
- nav{display:none}
+.cart-overlay{
+position:fixed;
+inset:0;
+background:#0009;
+z-index:80;
+display:none
 }
 
-@media(max-width:560px){
- .products{grid-template-columns:1fr}
- .nav{height:62px}
- .hero{min-height:500px}
+.cart-overlay.open{
+display:block
+}
+
+.cart{
+position:absolute;
+top:0;
+right:0;
+height:100%;
+width:min(430px,94vw);
+background:#110d0a;
+border-left:1px solid #745424;
+box-shadow:-20px 0 60px #000;
+display:flex;
+flex-direction:column
+}
+
+.cart-head{
+padding:18px;
+border-bottom:1px solid #4e391f;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.cart-items{
+padding:15px;
+overflow:auto;
+flex:1
+}
+
+.cart-item{
+display:grid;
+grid-template-columns:70px 1fr auto;
+gap:10px;
+padding:12px 0;
+border-bottom:1px solid #332719
+}
+
+.cart-item img{
+width:70px;
+height:65px;
+object-fit:cover;
+border-radius:10px
+}
+
+.qty{
+display:flex;
+gap:7px;
+align-items:center;
+margin-top:6px
+}
+
+.qty button{
+background:#241a12;
+color:#fff;
+border:1px solid #5b4424;
+border-radius:8px;
+width:28px;
+height:28px;
+cursor:pointer
+}
+
+.cart-foot{
+padding:17px;
+border-top:1px solid #4e391f
+}
+
+.total{
+display:flex;
+justify-content:space-between;
+font-size:19px;
+margin-bottom:12px;
+color:var(--gold)
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:#000b;
+z-index:100;
+display:none;
+place-items:center;
+padding:15px
+}
+
+.modal.open{
+display:grid
+}
+
+.modal-box{
+width:min(560px,100%);
+max-height:92vh;
+overflow:auto;
+background:#130e0b;
+border:1px solid #765728;
+border-radius:22px;
+padding:22px;
+box-shadow:0 25px 90px #000
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.form-grid .full{
+grid-column:1/-1
+}
+
+.close{
+background:#251b14;
+color:#fff;
+border:1px solid #5b4424;
+border-radius:10px;
+padding:7px 12px;
+cursor:pointer
+}
+
+.notice{
+font-size:12px;
+color:#a99f96;
+margin-top:8px
+}
+
+@media(max-width:950px){
+
+.products{
+grid-template-columns:repeat(2,1fr)
+}
+
+.features{
+grid-template-columns:1fr
+}
+
+}
+
+@media(max-width:600px){
+
+nav{
+display:none
+}
+
+.nav{
+height:64px
+}
+
+.products{
+grid-template-columns:1fr
+}
+
+.hero{
+min-height:570px
+}
+
+.hero-content{
+padding:60px 0
+}
+
+.hero h1{
+font-size:45px
+}
+
+.form-grid{
+grid-template-columns:1fr
+}
+
+.form-grid .full{
+grid-column:auto
+}
+
 }
 </style>
 </head>
@@ -186,6 +552,7 @@ footer{
 <body>
 
 <header>
+
 <div class="container nav">
 
 <a class="logo" href="#">
@@ -195,230 +562,119 @@ footer{
 
 <nav>
 <a href="#products">محصولات</a>
+<a href="#why">مزیت‌ها</a>
 <a href="#contact">تماس</a>
 </nav>
 
+<div class="actions">
+
 <a class="btn" href="tel:09183771833">
-تماس با پانیز
+تماس
 </a>
 
-</div>
-</header>
+<button class="iconbtn" onclick="openCart()">
+🛒 سبد خرید
+<span class="badge" id="cartCount">0</span>
+</button>
 
+</div>
+
+</div>
+
+</header>
 
 <section class="hero">
 
-<div class="hero-box">
+<div class="hero-content container">
 
-<div style="color:#f0ca6c;font-weight:bold">
+<div class="eyebrow">
 شیرینی پانیز
 </div>
 
 <h1>
-طعم لوکس، برای لحظه‌های خاص
+شیرینی تازه، برای لحظه‌های ماندگار
 </h1>
 
 <p>
-کیک، شیرینی و دسرهای خوشمزه با طراحی خاص
+کیک، شیرینی و دسر با ظاهر لوکس و امکان ثبت سفارش مستقیم از سایت.
 </p>
+
+<div class="hero-buttons">
 
 <a class="btn" href="#products">
 مشاهده محصولات
 </a>
 
+<a class="iconbtn" href="https://wa.me/989183771833">
+سفارش در واتساپ
+</a>
+
+</div>
+
 </div>
 
 </section>
 
-
 <section class="section container" id="products">
 
 <div class="title">
-<h2>محصولات پانیز</h2>
-<p>برای شروع، قیمت‌های نمونه قرار داده شده‌اند.</p>
+
+<h2>
+محصولات پانیز
+</h2>
+
+<p>
+قیمت‌های فعلی فروشگاه را می‌توانی بعداً از همین بخش به‌روزرسانی کنی.
+</p>
+
 </div>
 
 <div class="controls">
 
 <input
- id="search"
- placeholder="جستجوی محصول..."
+class="search"
+id="search"
+placeholder="🔎 جستجوی محصول..."
 >
 
 <select id="cat">
-<option value="all">همه</option>
-<option value="کیک">کیک</option>
-<option value="شیرینی">شیرینی</option>
-<option value="دسر">دسر</option>
+
+<option value="all">
+همه دسته‌ها
+</option>
+
+<option value="کیک">
+کیک
+</option>
+
+<option value="شیرینی">
+شیرینی
+</option>
+
+<option value="دسر">
+دسر
+</option>
+
+</select>
+
+<select id="sort">
+
+<option value="default">
+مرتب‌سازی
+</option>
+
+<option value="low">
+ارزان‌ترین
+</option>
+
+<option value="high">
+گران‌ترین
+</option>
+
 </select>
 
 </div>
 
 <div class="products" id="grid"></div>
 
-</section>
-
-
-<section class="section contact" id="contact">
-
-<div class="container">
-
-<div class="title">
-<h2>سفارش و تماس</h2>
-<p>برای سفارش با پانیز تماس بگیرید.</p>
-</div>
-
-<a class="phone" href="tel:09183771833">
-۰۹۱۸۳۷۷۱۸۳۳
-</a>
-
-<br><br>
-
-<a class="btn" href="https://wa.me/989183771833">
-سفارش در واتساپ
-</a>
-
-</div>
-
-</section>
-
-
-<footer>
-© ۱۴۰۵ شیرینی پانیز — تمامی حقوق محفوظ است.
-</footer>
-
-
-<script>
-
-const products=[
-
-[
-"کیک شکلاتی سلطنتی",
-"کیک",
-"890000",
-"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"کیک وانیلی توت‌فرنگی",
-"کیک",
-"790000",
-"https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"چیزکیک کلاسیک",
-"دسر",
-"620000",
-"https://images.unsplash.com/photo-1567171466295-4afa63d454f1?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"کیک شکلات و فندق",
-"کیک",
-"980000",
-"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"باکس شیرینی مجلسی",
-"شیرینی",
-"690000",
-"https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"ترافل شکلاتی",
-"دسر",
-"420000",
-"https://images.unsplash.com/photo-1575377427642-087cf684f29d?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"کاپ‌کیک وانیلی",
-"کیک",
-"320000",
-"https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=900&q=85"
-],
-
-[
-"باکس هدیه پانیز",
-"شیرینی",
-"990000",
-"https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=900&q=85"
-]
-
-];
-
-
-const grid=document.getElementById("grid");
-const search=document.getElementById("search");
-const cat=document.getElementById("cat");
-
-
-function render(){
-
-let s=search.value.trim().toLowerCase();
-let c=cat.value;
-
-grid.innerHTML=products
-
-.filter(p =>
-(c==="all" || p[1]===c) &&
-p[0].toLowerCase().includes(s)
-)
-
-.map(p=>`
-
-<article class="card">
-
-<img
-src="${p[3]}"
-alt="${p[0]}"
-loading="lazy"
->
-
-<div class="card-body">
-
-<h3>${p[0]}</h3>
-
-<div class="price">
-${Number(p[2]).toLocaleString("fa-IR")} تومان
-</div>
-
-<button
-class="btn"
-onclick="order('${p[0]}')"
->
-سفارش این محصول
-</button>
-
-</div>
-
-</article>
-
-`).join("");
-
-}
-
-
-function order(name){
-
-location.href=
-"https://wa.me/989183771833?text="+
-encodeURIComponent(
-"سلام پانیز، برای سفارش «"+name+"» راهنمایی می‌خواستم."
-);
-
-}
-
-
-search.oninput=render;
-cat.onchange=render;
-
-render();
-
-</script>
-
-</body>
-</html>
+ </section>
